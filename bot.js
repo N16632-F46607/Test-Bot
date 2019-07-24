@@ -73,4 +73,4 @@ client.on('guildMemberRemove', member => {
 });
 
 // Logea al bot utilizando el token del archivo auth.json de https://discordapp.com/developers/applications/me
-client.login('NTQyOTI1Mjg2NzYxNTYyMTEy.XTezOg.8SmmkYkF5o56x-Oq-oC80lAsFag');
+client.login(process.env.BOT_TOKEN);
