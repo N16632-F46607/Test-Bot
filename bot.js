@@ -37,7 +37,8 @@ client.on('message', message => {
 		const embed = new RichEmbed()
 			.setTitle('Lista de Comandos:')
 			.setColor(0x1a1c2e)
-			.setDescription(prefix + 'dahir: Contador de expulsiones del Dahir');
+			.setDescription(prefix + 'dahir: Contador de expulsiones del Dahir \n' +
+				prefix + 'sdk #: Establece el contador de expulsiones al número escrito');
 		message.channel.send(embed);
 	} else
 
@@ -45,13 +46,25 @@ client.on('message', message => {
 		const embed = new RichEmbed()
 			.setTitle('Dahir')
 			.setColor(0x343050)
-			.setDescription('Baneado: ' + count + ' Veces!');
+			.setDescription('Expulsado: ' + count + ' Veces!');
 		message.channel.send(embed);
-	} //else
+	} else
 
-	//if (message.content.toLowerCase() === 'prueba') {
-	//	const auditLogs = new GuildAuditLogs;
-	//}
+	if (message.content.toLowerCase().startsWith('sdk ')) {
+		if (isNaN(message.content.substring(4)) || message.content.substring(4) === '' || message.content.substring(4).startsWith('-')) {
+			message.channel.send('Error!');
+			return;
+		} else {
+			count = message.content.substring(4);
+			let data = { 
+				banCount: count
+			};
+			fs.writeFile('./data.json', JSON.stringify(data, null, 4), (err) => { 
+				if (err) throw err;
+			});
+			message.channel.send('Listo!')
+		}
+	}
 });
 
 // Crea un event listener para las expulsiones
