@@ -45,7 +45,7 @@ client.on('message', message => {
   	if (message.content.toLowerCase() === 'dahir') {
 		const embed = new RichEmbed()
 			.setTitle('Dahir')
-			.setColor(0x343050)
+			.setColor(0xe62c44)
 			.setDescription('Expulsado: ' + count + ' Veces!');
 		message.channel.send(embed);
 	} else
