@@ -24,6 +24,7 @@ var count = value.banCount;
  */
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setActivity("Hello World!");
 });
 
 // Crea un event listener para los mensajes
