@@ -93,7 +93,7 @@ client.on('guildMemberRemove', member => {
 		setKicksQty(getKicksQty() + 1);
 	}
 	// En cualquier caso envía un mensaje de despedida
-	client.channels.get('602945989556305970').send('Al rato @' + member.user.username + '!');
+	client.channels.get('470938434500820996').send('Al rato @' + member.user.username + '!');
 });
 
 // Logea al bot utilizando el token del archivo auth.json de https://discordapp.com/developers/applications/me
